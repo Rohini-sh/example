@@ -1,0 +1,58 @@
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <form class="example-form">
+            <div>
+              <mat-form-field >
+                <mat-label>Airline Name:</mat-label>
+                <mat-select [disabled]="isDisabled">
+                  <mat-option (onSelectionChange)="onAirlineSelect(airlineName)" *ngFor="let airlineName of airlinesArray" [value]="airlineName" >
+                    {{airlineName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              &nbsp;
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)=visi()>
+                <mat-icon >add_circle</mat-icon>
+              </button>
+
+               &nbsp;
+              <mat-form-field class="example-full-width" *ngIf=hie>
+                <input matInput placeholder="Airline Name" [(ngModel)]="airlineName" name="airlinename">
+              </mat-form-field>
+          </div>
+          <div>
+
+            <mat-form-field class="example-full-width">
+          <input matInput placeholder="OTP" [(ngModel)]="otp"name="otp">%
+
+          <!-- //<mat-error *ngIf="employeeformControl.invalid">{{getEmployeeMessage()}}</mat-error> -->
+        </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Month:</mat-label> &nbsp;
+            <mat-select >
+              <mat-option (onSelectionChange)="onMonthSelect(month)" *ngFor="let month of monthsArray" [value]="month">
+                {{month}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Year:</mat-label> &nbsp;
+            <mat-select >
+              <mat-option (onSelectionChange)="onYearSelect(year)" *ngFor="let year of totalYears" [value]="year">
+                {{year}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="submit()" color="primary">SUBMIT</button>
+    <button mat-raised-button (click)="cancel()" color="primary">CANCEL</button>
+  </mat-card-actions>
+</mat-card>
